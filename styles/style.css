@@ -1,0 +1,86 @@
+/* Fonts */
+
+/* space-mono-700 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./assets/fonts/space-mono-v14-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* lexend-deca-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./assets/fonts/lexend-deca-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Variables */
+
+:root {
+    --clr-primary-400: hsla(40, 97%, 58%, 1);
+    --clr-primary-200: hsla(39, 100%, 94%);
+    --clr-neutral-900: hsla(216, 17%, 35%, 1);
+    --clr-neutral-700: hsla(217, 12%, 62%);
+    --clr-neutral-400: hsla(212, 41%, 93%);
+    --clr-neutral-200: hsla(214, 37%, 96%);
+
+    --ff-title: 'Space Mono', sans-serif;
+    --ff-subtitle: 'Lexend Deca', sans-serif;
+
+    --h1-fs: clamp(4rem, 1.6667vw + 3.4667rem, 5.6rem);
+    --h1-lh: clamp(4rem, 1.6667vw + 3.4667rem, 5.6rem);
+    --h1-spacing: clamp(.179rem, .074vw + .1553rem, .25rem);
+    --h2-fs: clamp(3.2rem, 1.6667vw + 2.6667rem, 4.8rem);
+    --h2-lh: clamp(3.2rem, 1.6667vw + 2.6667rem, 4.8rem);
+    --h2-spacing: clamp(.143rem, .074vw + .1193rem, .214rem);
+    --h3-fs: clamp(2.4rem, 1.6667vw + 1.8667rem, 4rem);
+    --h3-lh: clamp(2.8rem, 2.0833vw + 2.1333rem, 4.8rem);
+    --h3-spacing: clamp(.107rem, .075vw + .083rem, .179rem);
+    --h4-fs: 2rem;
+    --h4-lh: 2.4rem;
+    --h4-spacing: .089rem;
+    --body-fs: 1.5rem;
+    --body-lh: 2.5rem;
+
+    --spacing-x: clamp(3.2rem, 13.8542vw + -1.2333rem, 16.5rem);
+}
+
+/* General styles */
+
+/** Header **/
+
+/*** Burger menu ***/
+
+/*** Tablet ***/
+
+/*** Desktop ***/
+
+/* Specific styles */
+
+/** Home **/
+
+/*** Tablet ***/
+
+/*** Desktop ***/
+
+/** About **/
+
+/*** Tablet ***/
+
+/*** Desktop ***/
+
+/** Careers **/
+
+/*** Tablet ***/
+
+/*** Desktop ***/
+
+/** Locations **/
+
+/*** Tablet ***/
+
+/*** Desktop ***/

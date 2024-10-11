@@ -6,7 +6,7 @@
     font-family: 'Space Mono';
     font-style: normal;
     font-weight: 700;
-    src: url('./assets/fonts/space-mono-v14-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('../assets/fonts/space-mono-v14-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* lexend-deca-regular - latin */
@@ -15,7 +15,7 @@
     font-family: 'Lexend Deca';
     font-style: normal;
     font-weight: 400;
-    src: url('./assets/fonts/lexend-deca-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('../assets/fonts/lexend-deca-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* Variables */
@@ -31,7 +31,7 @@
     --clr-neutral-200: hsla(214, 37%, 96%);
 
     --ff-title: 'Space Mono', sans-serif;
-    --ff-subtitle: 'Lexend Deca', sans-serif;
+    --ff-body: 'Lexend Deca', sans-serif;
 
     --h1-fs: clamp(4rem, 1.6667vw + 3.4667rem, 5.6rem);
     --h1-lh: clamp(4rem, 1.6667vw + 3.4667rem, 5.6rem);
@@ -45,6 +45,7 @@
     --h4-fs: 2rem;
     --h4-lh: 2.4rem;
     --h4-spacing: .089rem;
+    --nav-fs: clamp(1.8rem, -.3125vw + 1.9rem, 1.5rem);
     --body-fs: 1.5rem;
     --body-lh: 2.5rem;
 
@@ -53,9 +54,159 @@
 
 /* General styles */
 
+body {
+    background-color: var(--clr-neutral-200);
+    font-family: var(--ff-body);
+    font-size: var(--body-fs);
+    position: relative;
+}
+
+main {
+    position: relative;
+}
+
+.overlay {
+    width: 100vw;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    transition: all .5s ease-in-out;
+}
+
+.overlay.active {
+    background-color: var(--clr-secondary-transparency);
+}
+
+a[class] {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    min-width: 18rem;
+    max-width: 100%;
+    height: 5.3rem;
+    padding-block: 1.4rem;
+    padding-inline: 4rem;
+    background-color: var(--clr-primary-400);
+    color: var(--clr-neutral-200);
+}
+
+.fixed {
+    position: fixed;
+}
+
 /** Header **/
 
+header {
+    height: 6.4rem;
+    width: 100vw;
+    background-color: var(--clr-neutral-200);
+    position: fixed;
+    z-index: 90;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo svg {
+    width: 7.6rem;
+    height: 2rem;
+}
+
+.main-nav {
+    position: absolute;
+    height: calc(100vh - 6.4rem);
+    top: 6.4rem;
+    left: 0;
+    background-color: var(--clr-neutral-900);
+    color: var(--clr-neutral-200);
+    width: 25.6rem;
+    font-family: var(--ff-title);
+    padding-block: 6.4rem 2.4rem;
+    padding-inline: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateX(-25.6rem);
+    transition: .5s ease-in-out;
+}
+
+.nav-slide {
+    transform: translateX(0);
+}
+
+.main-nav_list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.main-nav_link {
+    font-size: var(--nav-fs);
+}
+
+
 /*** Burger menu ***/
+
+.menu-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    top: 2.4rem;
+    left: 3.2rem;
+    z-index: 99;
+    width: 2.4rem;
+    height: 2rem;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+}
+
+.menu-btn span {
+    background-color: var(--clr-primary-400);
+    width: 100%;
+    height: .4rem;
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+    position: absolute;
+    left: 0;
+}
+
+.menu-btn span:first-child {
+    top: 0;
+}
+
+.menu-btn span:nth-child(2), .menu-btn span:nth-child(3) {
+    top: .8rem;
+}
+
+.menu-btn span:last-child {
+    top: 1.6rem;
+}
+
+.menu-btn.open span:first-child, .menu-btn.open span:last-child {
+    top: .8rem;
+    width: 0%;
+    left: 50%;
+}
+
+.menu-btn.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.menu-btn.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
 
 /*** Tablet ***/
 

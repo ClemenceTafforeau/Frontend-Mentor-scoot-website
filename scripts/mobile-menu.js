@@ -1,11 +1,23 @@
 const body = document.querySelector('body');
 const navigation = document.querySelector('.main-nav');
 const menuBtn = document.querySelector('.menu-btn');
-const overlay = document.querySelector('.overlay');
+const overlays = document.querySelectorAll('.overlay');
 
 menuBtn.addEventListener('click', () => {
     menuBtn.classList.toggle('open');
     navigation.classList.toggle('nav-slide');
-    overlay.classList.toggle('active');
-    body.classList.toggle('fixed');
+    body.classList.toggle('fixed-body');
+    overlays.forEach((overlay) => {
+        if(!menuBtn.classList.contains('open')) {
+            overlay.classList.toggle('active');
+            setTimeout(() => {
+                overlay.classList.replace('displayed', 'hidden');
+            }, 600)
+        } else {
+            overlay.classList.replace('hidden', 'displayed');
+            setTimeout(() => {
+                overlay.classList.toggle('active');
+            }, 6)
+        }
+    });
 });

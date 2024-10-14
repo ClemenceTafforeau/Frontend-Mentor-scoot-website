@@ -103,7 +103,7 @@ main section:not(.hero) {
 a[class]:not(.btn) {
     text-decoration: none;
     color: inherit;
-    transition: all .6s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 a[class]:not(.btn, .app-provider_link):hover, a[class]:not(.btn, .app-provider_link):focus, a[class]:not(.btn, .app-provider_link):active {
@@ -120,7 +120,7 @@ a[class]:not(.btn, .app-provider_link):hover, a[class]:not(.btn, .app-provider_l
     background-color: var(--clr-primary-400);
     color: var(--clr-neutral-200);
     border: 1px transparent solid;
-    transition: all .6s ease-in-out;
+    transition: all .3s ease-in-out;
     font-family: var(--ff-title);
 }
 
@@ -155,6 +155,7 @@ a[class]:not(.btn, .app-provider_link):hover, a[class]:not(.btn, .app-provider_l
 }
 
 .secondary-hero {
+    background-image: url(../assets/img/secondary-hero.png);
     height: clamp(16rem, 8.9286vw + 13.1429rem, 20rem);
     justify-content: center;
     align-items: center;
@@ -238,7 +239,7 @@ header {
 }
 
 .header-logo svg path {
-    transition: all .6s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .header-logo:hover svg path, .header-logo:focus svg path, .header-logo:active svg path {
@@ -488,7 +489,7 @@ footer {
 
 .social-nav_link svg path {
     fill: var(--clr-primary-400);
-    transition: all .6s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .social-nav_link:hover svg path, .social-nav_link:focus svg path, .social-nav_link:active svg path {
@@ -496,7 +497,7 @@ footer {
 }
 
 .footer-logo svg path {
-    transition: all .6s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .footer-logo:hover svg path, .footer-logo:focus svg path, .footer-logo:active svg path {
@@ -592,14 +593,14 @@ footer {
 }
 
 .guide, .features {
-    padding-block-end: var(--spacing-y);
+    padding-block-end: var(--spacing-y-secondary);
 }
 
 .guide {
     display: flex;
     flex-direction: column;
     gap: 4.8rem;
-    padding-block-start: var(--spacing-y);
+    padding-block-start: var(--spacing-y-secondary);
 }
 
 .guide-card {
@@ -909,10 +910,6 @@ footer {
 
 /** About **/
 
-.about-hero {
-    background-image: url(../assets/img/secondary-hero.png);
-}
-
 .about-main .features {
     padding-block-start: var(--spacing-y-secondary);
 }
@@ -942,6 +939,7 @@ footer {
     line-height: var(--h2-lh);
     letter-spacing: var(--h2-spacing);
     padding-block-end: 6.4rem;
+    text-align: center;
 }
 
 .values h3 {
@@ -1066,7 +1064,7 @@ footer {
     background-color: var(--clr-neutral-400);
     color: var(--clr-neutral-800);
     padding-block-start: 3.2rem;
-    transition: all .6s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .faq-content button {
@@ -1128,6 +1126,7 @@ footer {
     }
     .values h2 {
         text-align: center;
+        padding-block-end: 0;
     }
     .values-container {
         flex-direction: row;
@@ -1147,9 +1146,81 @@ footer {
 
 /** Careers **/
 
+.careers-main .features {
+    margin-block-start: var(--spacing-y-secondary);
+}
+
+.job-applications {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-block: var(--spacing-y-secondary);
+}
+
+.job-application-card {
+    background-color: var(--clr-neutral-400);
+    color: var(--clr-neutral-800);
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 3.2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.job-application-card .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.job-description {
+    text-align: center;
+}
+
+.job-description p:first-child {
+    font-size: var(--h4-fs);
+    line-height: var(--h4-lh);
+    letter-spacing: var(--h4-spacing);
+    font-family: var(--ff-title);
+}
+
+.careers-main .feature-card:first-child .feature-img {
+    background-image: url(../assets/img/careers-img-1.png);
+}
+
 /*** Tablet ***/
 
+@media only screen and (min-width: 48em) {
+    .careers-main .feature-card:first-child .feature-img svg {
+        top: 60%;
+        right:-33vw;
+    }
+    .job-application-card {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .job-description {
+        text-align: start;
+        display: grid;
+        gap: .8rem;
+    }
+}
+
 /*** Desktop ***/
+
+@media only screen and (min-width: 80em) {
+    .careers-main .feature-card:first-child .feature-img svg {
+        right:-13vw;
+    }
+}
+
+@media only screen and (min-width: 90em) {
+    .job-applications {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 /** Locations **/
 

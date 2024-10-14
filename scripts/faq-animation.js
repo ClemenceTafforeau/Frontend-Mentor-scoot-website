@@ -12,23 +12,6 @@ faqArticles.forEach((faqArticle) => {
         toggleFaqContent();
     });
 
-    // button.addEventListener('focus', () => {
-    //     button.classList.add('focused');
-    // });
-
-    // button.addEventListener('blur', () => {
-    //     if (document.activeElement !== button) {
-    //         button.classList.remove('focused'); // Remove focus styles
-    //     }
-    // });
-
-    // button.addEventListener('keydown', (event) => {
-    //     if(event.key === 'Enter' || event.key === ' ') {
-    //         event.preventDefault(); // Prevent default behavior for Space
-    //         toggleFaqContent();
-    //     }
-    // })
-
     function toggleFaqContent() {
         const isExpanded = button.getAttribute('aria-expanded') === 'true';
 

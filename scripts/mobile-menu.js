@@ -12,12 +12,12 @@ menuBtn.addEventListener('click', () => {
             overlay.classList.toggle('active');
             setTimeout(() => {
                 overlay.classList.replace('displayed', 'hidden');
-            }, 600)
+            }, 300)
         } else {
             overlay.classList.replace('hidden', 'displayed');
             setTimeout(() => {
                 overlay.classList.toggle('active');
-            }, 6)
+            }, 3)
         }
     });
 });

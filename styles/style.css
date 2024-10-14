@@ -90,9 +90,18 @@ main section:not(.hero) {
     transition: all .5s ease-in-out;
 }
 
+*:focus {
+    outline: none;
+}
+
 a[class]:not(.btn) {
     text-decoration: none;
     color: inherit;
+    transition: all .6s ease-in-out;
+}
+
+a[class]:not(.btn, .app-provider_link):hover, a[class]:not(.btn, .app-provider_link):focus, a[class]:not(.btn, .app-provider_link):active {
+    color: var(--clr-primary-400);
 }
 
 .btn {
@@ -171,6 +180,14 @@ header {
 .header-logo svg {
     width: 7.6rem;
     height: 2rem;
+}
+
+.header-logo svg path {
+    transition: all .6s ease-in-out;
+}
+
+.header-logo:hover svg path, .header-logo:focus svg path, .header-logo:active svg path {
+    fill: var(--clr-primary-400);
 }
 
 .main-nav {
@@ -351,6 +368,12 @@ footer {
     height: fit-content;
     border-radius: .4rem;
     position: relative;
+    transition: all .3s ease-in-out;
+}
+
+.app-provider:has(.app-provider_link:focus), .app-provider:has(.app-provider_link:active) {
+    outline: .1rem var(--clr-neutral-200) solid;
+    outline-offset: .2rem;
 }
 
 .app-provider img {
@@ -409,6 +432,23 @@ footer {
     align-items: center;
 }
 
+.social-nav_link svg path {
+    fill: var(--clr-primary-400);
+    transition: all .6s ease-in-out;
+}
+
+.social-nav_link:hover svg path, .social-nav_link:focus svg path, .social-nav_link:active svg path {
+    fill: var(--clr-neutral-200);
+}
+
+.footer-logo svg path {
+    transition: all .6s ease-in-out;
+}
+
+.footer-logo:hover svg path, .footer-logo:focus svg path, .footer-logo:active svg path {
+    fill: var(--clr-primary-400);
+}
+
 /*** Tablet ***/
 
 @media only screen and (min-width: 48em) {
@@ -431,6 +471,17 @@ footer {
 }
 
 /*** Desktop ***/
+
+@media only screen and (min-width: 80em) {
+    .sign-up {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .sign-up h3 {
+        max-width: 44rem;
+        text-align: start;
+    }
+}
 
 /* Specific styles */
 
@@ -469,6 +520,7 @@ footer {
 
 .smaller-arrow {
     width: clamp(36.4rem, 150.9091vw + -11.8909rem, 44.7rem);
+    max-width: fit-content;
     height: clamp(11.2rem, 47.2727vw + -3.9273rem, 13.8rem);
 }
 
@@ -625,10 +677,10 @@ footer {
         padding-block-start: 9.3rem;
         height: 70vh;
     }
-    .hero::after {
+    .home-hero::after {
         content: '';
         position: absolute;
-        right: -4%;
+        right: -4.8rem;
         bottom: 4.5rem;
         background-image: url(../assets/img/hero-circles.svg);
         background-size: cover;
@@ -700,6 +752,102 @@ footer {
 }
 
 /*** Desktop ***/
+
+@media only screen and (min-width: 80em) {
+    .hero-cta-container {
+        align-items: start;
+        text-align: start;
+    }
+    .hero-cta-container p {
+        margin-inline-start: clamp(5.6rem, 25vw + -26.4rem, 9.6rem);
+        max-width: clamp(40.5rem, 31.25vw + .5rem, 60.5rem);
+    }
+    .hero-cta-container .btn {
+        margin-inline-start: clamp(5.6rem, 25vw + -26.4rem, 9.6rem);
+        margin-inline-end: 0;
+    }
+    .home-hero .smaller-arrow {
+        left: 50%;
+        bottom: 24%;
+    }
+    .home-hero::before {
+        content: '';
+        position: absolute;
+        width: 20.3rem;
+        height: 1.5rem;
+        background-color: var(--clr-primary-400);
+        z-index: 2;
+        bottom: 42%;
+    }
+    .home-hero::after {
+        bottom: 25%;
+        right: -4.8rem;
+    }
+    .guide {
+        flex-direction: row;
+    }
+    .guide::before {
+        left: 0;
+        top: var(--spacing-y);
+        height: 1.5rem;
+        width: calc(100% - var(--spacing-x) - clamp(28.5rem, 17.9688vw + 5.5rem, 40rem));
+    }
+    .guide-card::before {
+        top: -9.6rem;
+    }
+    .guide-card {
+        padding-inline-start: 0;
+        margin-block-start: calc(8.8rem + 1.5rem);
+    }
+    .guide-card p {
+        min-width: 28.5rem;
+        max-width: 40rem;
+    }
+    .feature-card {
+        justify-content: space-between;
+    }
+    .feature-card:nth-child(even) {
+        flex-direction: row;
+    }
+    .feature-card:nth-child(even) .feature-img::after {
+        right: 115%;
+    }
+    .feature-card:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+    .feature-content {
+        text-align: start;
+        align-items: start;
+        max-width: clamp(40rem, 50vw + -24rem, 48rem);
+    }
+    .feature-card:first-of-type .feature-img .arrow {
+        right: calc(0 - var(--spacing-y));
+    }
+}
+
+@media only screen and (min-width: 101.625em) {
+    .guide::before {
+        width: 112rem;
+    }
+}
+@media only screen and (min-width: 110em) {
+    .feature-content {
+        display: grid;
+        max-width: 88rem;
+        column-gap: 9.6rem;
+    }
+    .feature-content h2 {
+        grid-column: 1 / 3;
+    }
+    .feature-content p {
+        grid-column: 1 / 2;
+    }
+    .feature-content .btn {
+        grid-column: 2 / 3;
+        justify-self: start;
+        align-self: end;
+    }
+}
 
 /** About **/
 

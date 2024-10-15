@@ -1,23 +1,6 @@
-// Function to animate arrows
-
-function animateArrows(elements) {
-    elements.forEach((element) => {
-        anime({
-            targets: element.querySelectorAll('path'),
-            strokeDashoffset: [anime.setDashoffset, 0],
-            easing: 'easeInOutSine',
-            duration: 1600,
-            delay: function(el, i) { return i * 100 },
-            direction: 'normal',
-            loop: false
-        });
-    });
-};
-
 // Function to animate the Home hero line element as well as the smaller arrow
 
 function homeHeroArrow(elements) {
-    // Animate the first element (.hero-line)
     anime({
         targets: elements[0].querySelector('line'),
         strokeDashoffset: [anime.setDashoffset, 0],
@@ -87,42 +70,22 @@ function guideCardsAnimation(elements) {
     });
 }
 
-// Function to add the fade-in effect of images
-
-function fadeInEffect(elements) {
-
-    elements.forEach((element) => {
-        const isVisible = element.getAttribute('data-visible') === 'true';
-
-        if(!isVisible) {
-            element.setAttribute('data-visible', 'true');
-        }
-    });
-};
-
 // IntersectionObserver callback
 const inViewport = (entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             if (!entry.target.hasAttribute('data-animated')) {
-                if (entry.target.matches('.feature-img')) {
-                    animateArrows([entry.target]);
-                    fadeInEffect([entry.target]); 
-                }
                 if (entry.target.matches('.guide-card')) {
                     guideCardsAnimation(document.querySelectorAll('.guide-card'));
                     guideAnimation(guideLineElement);
                 }
             }
-            entry.target.setAttribute('data-animated', 'true');
             if (entry.target.matches('.guide-card')) {
                 document.querySelectorAll('.guide-card').forEach(guideCard => {
                     guideCard.setAttribute('data-animated', 'true');
                 })
                 guideLineElement.setAttribute('data-animated', 'true');
             }
-
-            observer.unobserve(entry.target);
             if (entry.target.matches('.guide-card')) {
                 document.querySelectorAll('.guide-card').forEach(guideCard => {
                     observer.unobserve(guideCard);
@@ -136,7 +99,7 @@ const inViewport = (entries, observer) => {
 // Set up the IntersectionObserver
 
 const Obs = new IntersectionObserver(inViewport);
-document.querySelectorAll('.arrow, .feature-img').forEach(el => Obs.observe(el));
+document.querySelectorAll('.arrow').forEach(el => Obs.observe(el));
 
 const guideLineElement = document.querySelector('.guide-line');
 const guideCards = document.querySelectorAll('.guide-card');

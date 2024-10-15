@@ -75,7 +75,7 @@ main {
     padding-block-start: 6.4rem;
 }
 
-main section:not(.hero) {
+main section:not(.hero, .map-container) {
     padding-inline: var(--spacing-x);
     color: var(--clr-neutral-600);
 }
@@ -100,13 +100,13 @@ main section:not(.hero) {
     outline: none;
 }
 
-a[class]:not(.btn) {
+a[class]:not(.btn, .location-tag) {
     text-decoration: none;
     color: inherit;
     transition: all .3s ease-in-out;
 }
 
-a[class]:not(.btn, .app-provider_link):hover, a[class]:not(.btn, .app-provider_link):focus, a[class]:not(.btn, .app-provider_link):active {
+a[class]:not(.btn, .app-provider_link, .location-tag):hover, a[class]:not(.btn, .app-provider_link, .location-tag):focus, a[class]:not(.btn, .app-provider_link, .location-tag):active {
     color: var(--clr-primary-400);
 }
 
@@ -1248,6 +1248,7 @@ footer {
     align-items: center;
     gap: 4rem;
     margin-block: var(--spacing-y-secondary);
+    padding-inline: var(--spacing-x);
 }
 
 .map {
@@ -1283,34 +1284,35 @@ footer {
     padding-block: 2.4rem;
 }
 
-.map a[data-location] {
+.location-tag {
     width: 1.6rem;
     height: 1.6rem;
     border-radius: 50%;
     background-color: var(--clr-primary-400);
     position: absolute;
+    transform-origin: center bottom;
 }
 
 .larger-devices-visible {
     display: none;
 }
 
-.map a[data-location="new-york"] {
+.location-tag[data-location="new-york"] {
     top: clamp(3.6rem, 16.5179vw + -1.6857rem, 11rem);
     left: clamp(6.4rem, 18.75vw + .4rem, 14.8rem);
 }
 
-.map a[data-location="london"] {
+.location-tag[data-location="london"] {
     top: clamp(3.2rem, 11.1607vw + -.3714rem, 8.2rem);
     left: clamp(11rem, 35.7143vw + -.4286rem, 27rem);
 }
 
-.map a[data-location="yokohama"] {
+.location-tag[data-location="yokohama"] {
     top: clamp(4.4rem, 15.625vw + -.6rem, 11.4rem);
     left: clamp(21rem, 64.7321vw + .2857rem, 50rem);
 }
 
-.map a[data-location="jakarta"] {
+.location-tag[data-location="jakarta"] {
     top: clamp(8rem, 24.5536vw + .1429rem, 19rem);
     left: clamp(19rem, 58.0357vw + .4286rem, 45rem);
 }
@@ -1339,7 +1341,7 @@ footer {
     .locations_list {
         display: none;
     }
-    .map a[data-location] {
+    .location-tag {
         font-size: 1.3rem;
         line-height: var(--h3-lh);
         width: fit-content;
@@ -1351,7 +1353,7 @@ footer {
         color: var(--clr-neutral-800);
         font-family: var(--ff-title);
     }
-    .map a[data-location]::after {
+    .location-tag::after {
         content: '';
         position: absolute;
         width: 0;
@@ -1359,26 +1361,26 @@ footer {
         border-top: 1.6rem var(--clr-primary-400) solid;
         border-left: 1.6rem transparent solid;
         border-right: 1.6rem transparent solid;
-        bottom: -1.6rem;
+        bottom: -1.5rem;
         left: 50%;
         transform: translateX(-50%);
     }
-    .map a[data-location="new-york"] {
+    .location-tag[data-location="new-york"] {
         top: clamp(6rem, 14.881vw + -5.4286rem, 16rem);
         left: clamp(9rem, 19.3452vw + -5.8571rem, 22rem);
     }
 
-    .map a[data-location="london"] {
+    .location-tag[data-location="london"] {
         top: clamp(3.4rem, 10.4167vw + -4.6rem, 10.4rem);
         left: clamp(22rem, 35.7143vw + -5.4286rem, 46rem);
     }
 
-    .map a[data-location="yokohama"] {
+    .location-tag[data-location="yokohama"] {
         top: clamp(6.8rem, 14.881vw + -4.6286rem, 16.8rem);
         left: clamp(44.5rem, 65.4762vw + -5.7857rem, 88.5rem);
     }
 
-    .map a[data-location="jakarta"] {
+    .location-tag[data-location="jakarta"] {
         top: clamp(14.5rem, 25.2976vw + -4.9286rem, 31.5rem);
         left: clamp(40rem, 58.0357vw + -4.5714rem, 79rem);
     }

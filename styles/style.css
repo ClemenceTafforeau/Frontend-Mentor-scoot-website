@@ -420,7 +420,6 @@ footer {
     align-items: center;
     gap: .8rem;
     font-family: var(--ff-title);
-    height: fit-content;
     border-radius: .4rem;
     position: relative;
     transition: all .3s ease-in-out;
@@ -535,6 +534,9 @@ footer {
     .sign-up h3 {
         max-width: 44rem;
         text-align: start;
+    }
+    .app-provider-container {
+        align-items: center;
     }
 }
 
@@ -847,7 +849,7 @@ footer {
     }
     .guide::before {
         left: 0;
-        top: var(--spacing-y);
+        top: var(--spacing-y-secondary);
         height: 1.5rem;
         width: calc(100% - var(--spacing-x) - clamp(28.5rem, 17.9688vw + 5.5rem, 40rem));
     }
@@ -1224,6 +1226,164 @@ footer {
 
 /** Locations **/
 
+.map-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-block: var(--spacing-y-secondary);
+}
+
+.map {
+    background-image: url(../assets/img/locations-map.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-width: 111rem;
+    min-height: clamp(13rem, 38.5714vw + .6571rem, 56.2rem);
+    position: relative;
+}
+
+.locations_list {
+    font-family: var(--ff-title);
+    font-size: var(--h4-fs);
+    line-height: var(--h4-lh);
+    letter-spacing: var(--h4-spacing);
+    color: var(--clr-neutral-800);
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    width: 100%;
+}
+
+.locations_item {
+    background-color: var(--clr-primary-200);
+}
+
+.location-marker {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding-block: 2.4rem;
+}
+
+.map a[data-location] {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background-color: var(--clr-primary-400);
+    position: absolute;
+}
+
+.larger-devices-visible {
+    display: none;
+}
+
+.map a[data-location="new-york"] {
+    top: clamp(3.6rem, 16.5179vw + -1.6857rem, 11rem);
+    left: clamp(6.4rem, 18.75vw + .4rem, 14.8rem);
+}
+
+.map a[data-location="london"] {
+    top: clamp(3.2rem, 11.1607vw + -.3714rem, 8.2rem);
+    left: clamp(11rem, 35.7143vw + -.4286rem, 27rem);
+}
+
+.map a[data-location="yokohama"] {
+    top: clamp(4.4rem, 15.625vw + -.6rem, 11.4rem);
+    left: clamp(21rem, 64.7321vw + .2857rem, 50rem);
+}
+
+.map a[data-location="jakarta"] {
+    top: clamp(8rem, 24.5536vw + .1429rem, 19rem);
+    left: clamp(19rem, 58.0357vw + .4286rem, 45rem);
+}
+
+.map-cta {
+    margin-block-end: var(--spacing-y-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    align-items: start;
+}
+
+.map-cta h2 {
+    color: var(--clr-neutral-800);
+    font-size: var(--h2-fs);
+    line-height: var(--h2-lh);
+    letter-spacing: var(--h2-spacing);
+}
+
 /*** Tablet ***/
 
+@media only screen and (min-width: 48em) {
+    .larger-devices-visible {
+        display: flex;
+    }
+    .locations_list {
+        display: none;
+    }
+    .map a[data-location] {
+        font-size: 1.3rem;
+        line-height: var(--h3-lh);
+        width: fit-content;
+        padding-block: .2rem;
+        padding-inline: 3.2rem;
+        border-radius: 0;
+        height: fit-content;
+        text-decoration: none;
+        color: var(--clr-neutral-800);
+        font-family: var(--ff-title);
+    }
+    .map a[data-location]::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 1.6rem var(--clr-primary-400) solid;
+        border-left: 1.6rem transparent solid;
+        border-right: 1.6rem transparent solid;
+        bottom: -1.6rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .map a[data-location="new-york"] {
+        top: clamp(6rem, 14.881vw + -5.4286rem, 16rem);
+        left: clamp(9rem, 19.3452vw + -5.8571rem, 22rem);
+    }
+
+    .map a[data-location="london"] {
+        top: clamp(3.4rem, 10.4167vw + -4.6rem, 10.4rem);
+        left: clamp(22rem, 35.7143vw + -5.4286rem, 46rem);
+    }
+
+    .map a[data-location="yokohama"] {
+        top: clamp(6.8rem, 14.881vw + -4.6286rem, 16.8rem);
+        left: clamp(44.5rem, 65.4762vw + -5.7857rem, 88.5rem);
+    }
+
+    .map a[data-location="jakarta"] {
+        top: clamp(14.5rem, 25.2976vw + -4.9286rem, 31.5rem);
+        left: clamp(40rem, 58.0357vw + -4.5714rem, 79rem);
+    }
+}
+
 /*** Desktop ***/
+
+@media only screen and (min-width: 80em) {
+    .map-cta {
+        display: grid;
+        column-gap: 8rem;
+        grid-template-columns: 1fr 1fr;
+    }
+    .map-cta p {
+        grid-column: 1 / 2;
+        max-width: 72rem;
+    }
+    .map-cta a {
+        grid-column: 2 / 3;
+        justify-self: start;
+        align-self: end;
+    }
+}

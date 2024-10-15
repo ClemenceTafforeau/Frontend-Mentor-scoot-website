@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="./styles/style.css"></link>
         <script src="./node_modules/animejs/lib/anime.min.js" defer></script>
         <script src="./scripts/mobile-menu.js" defer></script>
+        <script src="./scripts/animations.js" type="module" defer></script>
     </head>
     <body>
         <header>
@@ -48,12 +49,23 @@
                     <p>Scoot takes the hassle out of urban mobility. Our bikes are placed in convenient locations in each of our cities. Use our app to locate the nearest bike, unlock it with a tap, and you’re away!</p>
                     <a href="#" class="btn">Get Scootin</a>
                 </div>
-                <svg class="smaller-arrow" viewBox="0 0 452 151" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="smaller-arrow hidden" data-visible="false" viewBox="0 0 452 151" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M407.952 145.444L446.378 107.018L407.952 68.5916" stroke="#FCB72B" stroke-width="15" stroke-linejoin="bevel"/>
                     <path d="M0 8H270.115V107.369H446.378" stroke="#FCB72B" stroke-width="15" stroke-linejoin="bevel"/>
                 </svg>
+                <svg class="hero-line" data-visible="false" viewBox="0 0 203 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line y1="7.5" x2="203" y2="7.5" stroke="#FCB72B" stroke-width="15"/>
+                </svg>
+                <svg class="hero-circles hidden" data-visible="false" viewBox="0 0 234 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="31" cy="31.5" r="29.5" stroke="white" stroke-width="3"/>
+                    <circle cx="117" cy="31.5" r="29.5" stroke="white" stroke-width="3"/>
+                    <circle cx="203" cy="31.5" r="31" stroke="white" stroke-width="3"/>
+                </svg>
             </section>
             <section class="guide">
+                <svg class="guide-line" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line y1="7.5" x2="1120" y2="7.5" stroke="#E5ECF4" stroke-width="15"/>
+                </svg>
                 <div class="guide-card">
                     <h2>Locate with app</h2>
                     <p>Use the app to find the nearest scooter to you. We are continuously placing scooters in the areas with most demand, so one should never be too far away.</p>
@@ -69,8 +81,8 @@
             </section>
             <section class="features">
                 <div class="feature-card">
-                    <div class="feature-img">
-                        <svg class="arrow" viewBox="0 0 741 151" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="feature-img" data-visible="false">
+                        <svg class="arrow" data-visible="false" viewBox="0 0 741 151" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="Group 32">
                             <path id="Path 4" d="M740.969 8H182.854V107.369H6.59113" stroke="#FCB72B" stroke-width="15" stroke-linejoin="bevel"/>
                             <g id="Group 13">
@@ -86,8 +98,8 @@
                     </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-img">
-                        <svg class="arrow" viewBox="0 0 741 151" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="feature-img" data-visible="false">
+                        <svg class="arrow" data-visible="false" viewBox="0 0 741 151" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="Group 32">
                             <path id="Path 4" d="M740.969 8H182.854V107.369H6.59113" stroke="#FCB72B" stroke-width="15" stroke-linejoin="bevel"/>
                             <g id="Group 13">
@@ -103,8 +115,8 @@
                     </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-img">
-                        <svg class="arrow" viewBox="0 0 741 151" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="feature-img" data-visible="false">
+                        <svg class="arrow" data-visible="false" viewBox="0 0 741 151" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="Group 32">
                             <path id="Path 4" d="M740.969 8H182.854V107.369H6.59113" stroke="#FCB72B" stroke-width="15" stroke-linejoin="bevel"/>
                             <g id="Group 13">

@@ -594,6 +594,10 @@ footer {
     z-index: 30;
 }
 
+.hero-line, .hero-circles {
+    display: none;
+}
+
 .guide, .features {
     padding-block-end: var(--spacing-y-secondary);
 }
@@ -605,6 +609,10 @@ footer {
     padding-block-start: var(--spacing-y-secondary);
 }
 
+.guide-line {
+    display: none;
+}
+
 .guide-card {
     padding-block-start: 8rem;
     display: flex;
@@ -613,6 +621,8 @@ footer {
     gap: 2.4rem;
     text-align: center;
     position: relative;
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
 }
 
 .guide-card::before {
@@ -626,15 +636,15 @@ footer {
     background-size: cover;
 }
 
-.guide-card:first-child::before {
+.guide-card:first-of-type::before {
     background-image: url(../assets/img/phone-icon.svg);
 }
 
-.guide-card:nth-child(2)::before {
+.guide-card:nth-of-type(2)::before {
     background-image: url(../assets/img/scooter-icon.svg);
 }
 
-.guide-card:last-child::before {
+.guide-card:last-of-type::before {
     background-image: url(../assets/img/scooter-ride-icon.svg);
 }
 
@@ -738,20 +748,18 @@ footer {
         padding-block-start: 9.3rem;
         height: 70vh;
     }
-    .home-hero::after {
-        content: '';
+    .home-hero .hero-circles.displayed {
+        display: flex;
         position: absolute;
         right: -4.8rem;
-        bottom: 4.5rem;
-        background-image: url(../assets/img/hero-circles.svg);
-        background-size: cover;
-        background-repeat: no-repeat;
+        bottom: 5%;
+        z-index: 1;
         width: 23.4rem;
         height: 6.3rem;
-        z-index: 1;
     }
     .hero-cta-container {
         text-align: center;
+        padding-block-start: 0;
     }
     .hero-cta-container .btn {
         margin-inline: auto ;
@@ -759,14 +767,18 @@ footer {
     .guide {
         position: relative;
     }
-    .guide::before {
-        content: '';
+    .guide-line {
+        display: flex;
         position: absolute;
-        width: 1.5rem;
-        height: 76%;
-        background-color: var(--clr-neutral-400);
         top: 0;
-        left: clamp(13.5rem, 13.6719vw + 3rem, 20.5rem);
+        width: 50rem;
+        height: 1.5rem;
+        left: calc(var(--spacing-x) + 4.8rem + .75rem);
+        transform-origin: top left;
+        transform: rotate(90deg);
+    }
+    .guide-line line {
+        opacity: 0;
     }
     .guide-card {
         text-align: start;
@@ -819,6 +831,9 @@ footer {
         align-items: start;
         text-align: start;
     }
+    .home-hero .hero-cta-container {
+        padding-block-start: 16rem;
+    }
     .hero-cta-container p {
         margin-inline-start: clamp(5.6rem, 25vw + -26.4rem, 9.6rem);
         max-width: clamp(40.5rem, 31.25vw + .5rem, 60.5rem);
@@ -831,27 +846,27 @@ footer {
         left: 50%;
         bottom: 24%;
     }
-    .home-hero::before {
-        content: '';
+    .hero-line {
+        display: block;
         position: absolute;
         width: 20.3rem;
         height: 1.5rem;
-        background-color: var(--clr-primary-400);
         z-index: 2;
-        bottom: 42%;
+        bottom: 41%;
     }
-    .home-hero::after {
+    .home-hero .hero-circles.displayed {
         bottom: 25%;
         right: -4.8rem;
     }
     .guide {
         flex-direction: row;
     }
-    .guide::before {
+    .guide-line {
         left: 0;
         top: var(--spacing-y-secondary);
-        height: 1.5rem;
+        transform: rotate(0);
         width: calc(100% - var(--spacing-x) - clamp(28.5rem, 17.9688vw + 5.5rem, 40rem));
+        height: 1.5rem;
     }
     .guide-card::before {
         top: -9.6rem;
@@ -887,7 +902,7 @@ footer {
 }
 
 @media only screen and (min-width: 101.625em) {
-    .guide::before {
+    .guide-line {
         width: 112rem;
     }
 }
@@ -1386,4 +1401,44 @@ footer {
         justify-self: start;
         align-self: end;
     }
+}
+
+/* Animation styles */
+
+.feature-card .feature-img {
+    transition: all .6s ease-in-out;
+    opacity: 0;
+}
+
+.feature-img[data-visible="true"] {
+    opacity: 1;
+    transition: all 1.4s ease-in-out;
+    transform: translateX(0);
+}
+
+.feature-card:nth-child(odd) .feature-img[data-visible="false"] {
+    transform: translateX(110%);
+;}
+
+.feature-card:nth-child(even) .feature-img[data-visible="false"] {
+    transform: translateX(-110%);
+;}
+
+@media only screen and (min-width: 48em) {
+    .feature-card:nth-child(odd) .feature-img[data-visible="false"] {
+        transform: translateX(125%);
+    ;}
+    
+    .feature-card:nth-child(even) .feature-img[data-visible="false"] {
+        transform: translateX(-125%);
+    ;}
+}
+
+.hero-circles circle:last-child {
+    fill: transparent;
+    transition: fill .6s ease-in-out;
+}
+
+.hero-circles.circle-fill circle:last-child {
+    fill: var(--clr-neutral-200);
 }

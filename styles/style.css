@@ -1099,6 +1099,12 @@ footer {
     margin-block-end: 3.2rem;
 }
 
+.faq-content button::before {
+    content: '';
+    position: absolute;
+    inset: -3.2rem;
+}
+
 .faq-content button::after {
     content: '';
     position: absolute;
@@ -1352,6 +1358,7 @@ footer {
         text-decoration: none;
         color: var(--clr-neutral-800);
         font-family: var(--ff-title);
+        transition: all .6s ease-in-out;
     }
     .location-tag::after {
         content: '';
@@ -1364,6 +1371,14 @@ footer {
         bottom: -1.5rem;
         left: 50%;
         transform: translateX(-50%);
+        transition: all .6s ease-in-out;
+    }
+    .location-tag:focus {
+        background-color: var(--clr-primary-200);
+        color: var(--clr-primary-400);
+    }
+    .location-tag:focus::after {
+        border-top-color: var(--clr-primary-200);
     }
     .location-tag[data-location="new-york"] {
         top: clamp(6rem, 14.881vw + -5.4286rem, 16rem);

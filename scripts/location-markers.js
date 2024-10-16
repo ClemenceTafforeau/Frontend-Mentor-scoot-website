@@ -41,10 +41,8 @@ window.addEventListener('load', () => {
 elementsToAnimate.forEach((element) => {
     element.addEventListener('mouseover', () => {
         wiggleLocationMarkers(element);
-    })
+    });
+    element.addEventListener('focus', () => {
+        wiggleLocationMarkers(element);
+    });
 });
-
-
-
-
-   
